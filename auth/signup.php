@@ -2,11 +2,11 @@
 
 include "../connect.php";
 
-$username      = filterRequest("username");
-$email         = filterRequest("email");
-$password      = sha1("password");
-$phone         = filterRequest("phone");
-$verfiycode    = rand(10000 , 99999);
+$username      =   filterRequest("username");
+$email         =   filterRequest("email");
+$password      =   sha1($_POST["password"]);
+$phone         =   filterRequest("phone");
+$verfiycode    =   rand(10000 , 99999);
 
 
 $stmt = $con->prepare("SELECT * From users WHERE users_email = ? OR users_phone = ? ");
